@@ -31,28 +31,67 @@ class Field {
 	}
 
 	moveUp() {this.positionRow--;}
-	moveDown() {this.positionCol++;}
+	moveDown() {this.positionRow++;}
 	moveLeft() {this.positionCol--;}
-	moveDownRight() {this.positionCol++;}
+	moveRight() {this.positionCol++;}
 
 	inBounds() {
-    return (
-        this.positionRow >= 0 &&
-        this.positionCol >= 0 &&
-        this.positionRow < this.field.length &&
-        this.positionCol < this.field[0].length
-    );
-}
+		return (
+        	this.positionRow >= 0 &&
+        	this.positionCol >= 0 &&
+        	this.positionRow < this.field.length &&
+        	this.positionCol < this.field[0].length
+    	);
+	}
+
+	runGame() {
+		let playing = true;
+		while (playing) {
+			this.print();
+			const direction = prompt("Which way? (u = up, d = down, l = left, r = right)");
+			switch (direction) {
+				case "u":
+					this.moveUp();
+					break;
+				case "d":
+					this.moveDown();
+					break;
+				case "l":
+					this.moveLeft();
+					break;
+				case "r":
+					this.moveRight();
+					break;
+				default:
+					console.log("Invalid input. Use u, d, l, r only!");
+					continue;
+			}
+
+			if (!this.inBounds()) {
+				console.log("You fell off the map. Game Over!");
+				playing = false;
+			} else if (this.field[this.positionRow][this.positionCol] === hole) {
+				console.log("You fell on a hole. Game Over!");
+				playing = false;
+			} else if (this.field[this.positionRow][this.positionCol] === hat) {
+				console.log("You found your hat. You Win!");
+				playing = false;
+			} else {
+				this.field[this.positionRow][this.positionCol] = pathCharacter;
+			}
+		}
+	}
 }
 
 // Game Mode ON
 // Remark: Code example below should be deleted and use your own code.
+
 const newGame = new Field([
 	["░", "░", "O"],
 	["░", "O", "░"],
 	["░", "^", "░"],
 ]);
-newGame.print();
+newGame.runGame();
 
 
 
@@ -100,3 +139,4 @@ newGame.print();
 // 	["░", "^", "░"],
 // ]);
 // newGame.print();
+

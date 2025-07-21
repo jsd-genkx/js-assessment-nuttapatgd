@@ -131,10 +131,19 @@
 
 ### Thinking Process
 
-1. // step 1
-2. // step 2
-3. // ...
-4. // step n
+1. // step 1: สร้าง class Field สำหรับเก็บข้อมูลสนาม และตำแหน่งผู้เล่น (row, column)
+2. // step 2: สร้าง method print() เพื่อแสดงผลสนาม
+3. // step 3: เขียน method ควบคุมการเคลื่อนที่ (moveUp, moveDown, moveLeft, moveRight)
+4. // step 4: สร้าง method inBounds() เพื่อเช็คว่าออกนอกสนามหรือยัง
+5. // step 5: สร้าง method runGame() เป็นลูปหลักให้ผู้เล่นพิมพ์คำสั่ง
+              -รับคำสั่งจากผู้ใช้ (u, d, l, r)
+              -เรียก move แต่ละทิศทางตามคำสั่ง
+              -เช็คสถานะใหม่หลังจากเคลื่อนที่ เช่น
+                1.ถ้าออกนอกสนาม = Game Over
+                2.ถ้าเจอหลุม = Game Over
+                3.ถ้าเจอหมวก = Win
+                4.ถ้ายังเดินต่อได้ = อัพเดตตำแหน่งด้วย *
+6. // step 6: ประกาศสนามตัวอย่าง และเริ่มเกม
 
 _Notes:_<br>
 _- You can attach flowcharts, diagrams, and images as needed._<br>
