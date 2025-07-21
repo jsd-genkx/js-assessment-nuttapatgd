@@ -68,13 +68,13 @@ class Field {
 			}
 
 			if (!this.inBounds()) {
-				console.log("You fell off the map. Game Over!");
+				console.log("You went out of bounds! Game Over.");
 				playing = false;
 			} else if (this.field[this.positionRow][this.positionCol] === hole) {
-				console.log("You fell on a hole. Game Over!");
+				console.log("You fell into a hole! Game Over.");
 				playing = false;
 			} else if (this.field[this.positionRow][this.positionCol] === hat) {
-				console.log("You found your hat. You Win!");
+				console.log("You found the hat! You Win!");
 				playing = false;
 			} else {
 				this.field[this.positionRow][this.positionCol] = pathCharacter;
