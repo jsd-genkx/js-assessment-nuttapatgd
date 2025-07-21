@@ -6,7 +6,7 @@
 		"JavaScript"
 	],
 	"license": "ISC",
-	"author": "",
+	"author": "16_nuttapat",
 	"type": "module",
 	"main": "main.js",
 	"scripts": {
